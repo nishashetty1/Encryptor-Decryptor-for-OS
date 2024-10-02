@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Encryption/Decryption</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./rsa.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>RSA Encryption/Decryption</h1>
+        
+        <button onclick="generateKeys()">Generate RSA Keys</button>
+        <h3>Public Key:</h3>
+        <textarea id="publicKey" rows="4" readonly></textarea>
+        
+        <h3>Private Key:</h3>
+        <textarea id="privateKey" rows="4" readonly></textarea>
+        
+        <label for="text">Text to Encrypt/Decrypt:</label>
+        <textarea id="text" rows="4" placeholder="Enter text here..."></textarea>
+        
+        <button onclick="encryptText()">Encrypt</button>
+        <button onclick="decryptText()">Decrypt</button>
+        
+        <h2>Result:</h2>
+        <textarea id="result" rows="4" readonly></textarea>
+    </div>
+    <script src="./rsa.js"></script>
+</body>
+</html>

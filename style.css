@@ -1,31 +1,24 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 :root {
-    --grid-unit: 1rem;
-    --border-radius-base: 0.5rem;
-  }
-  
-  [data-theme="light"] {
-    --bgLight:#f7fdfd;
-    --btnLight:#13cdc4;
-    --txtLight:#0b1d1c;
-    --primLight:#19716d;
-    --secLight:#68e8e2;
-  }
-  
-  [data-theme="dark"] {
-    --bgDark:#020808;
-    --btnDark:#30ece2;
-    --txtDark:#e0f3f2;
-    --primDark:#8de6e1;
-    --secDark:#179891;
-  }
+    --bgLight: #f7fdfd;
+    --btnLight: #13cdc4;
+    --txtLight: #0b1d1c;
+    --primLight: #19716d;
+    --secLight: #68e8e2;
+    --bgDark: #020808;
+    --btnDark: #30ece2;
+    --txtDark: #e0f3f2;
+    --primDark: #8de6e1;
+    --secDark: #179891;
 
-body{
+}
+
+body {
     background-color: var(--bgDark);
     color: var(--txtDark);
     display: flex;
@@ -34,9 +27,9 @@ body{
     flex-direction: column;
 }
 
-.btn{
+.btn {
     width: 150px;
-    height:80px;
+    height: 80px;
     background-color: var(--btnDark);
     font-size: 20px;
     border-radius: 20px;
@@ -44,19 +37,14 @@ body{
     border: none;
 }
 
-.btn:hover{
+.btn:hover {
     cursor: pointer;
     background-color: var(--secDark);
     transition: 0.5s;
 }
 
-.btn a{
-    color: var(--bgDark);
-    text-decoration: none;
-}
-
 /* intro */
-.introduction{
+.introduction {
     height: 400px;
     width: 90%;
     border-radius: 30px;

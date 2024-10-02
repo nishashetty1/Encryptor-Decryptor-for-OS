@@ -1,9 +1,7 @@
-// get theme on page load
-localStorage.getItem("theme");
+function redirectToAES() {
+    window.location.href = './aes.html'; // Change to your target HTML file
+}
 
-// set theme on button press
-localStorage.setItem("theme", newTheme);
-
-const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
-// or
-const systemSettingLight = window.matchMedia("(prefers-color-scheme: light)");
+function redirectToRSA() {
+    window.location.href = './rsa.html'; // Change to your target HTML file
+}
