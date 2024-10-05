@@ -1,29 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AES Encryption/Decryption</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./aes.css">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
+    <div class="aes-details">
+        <h2>About AES Algorithm</h2>
+        <p>
+            The Advanced Encryption Standard (AES) is a widely used encryption method that secures data 
+            through a process called symmetric key cryptography. This means that the same key is used for both 
+            encrypting and decrypting data.
+        </p> <hr> 
+        <h3>How AES Works ?</h3>
+        <p>
+            AES works by taking a block of data (128 bits) and a key (128, 192, or 256 bits) to encrypt or decrypt the data. 
+            Here's a simplified overview of the process:
+        </p>
+        <ol>
+            <li><strong>Key Expansion:</strong> The key is expanded into multiple key schedules that are used in each round of encryption.</li>
+            <li><strong>Initial Round:</strong> The initial data block undergoes an AddRoundKey step where it is combined with the first key schedule.</li>
+            <li><strong>Main Rounds:</strong> Depending on the key size, there are 10, 12, or 14 main rounds that include:
+                <ul>
+                    <li><strong>SubBytes:</strong> Each byte in the block is replaced with another byte using a substitution table.</li>
+                    <li><strong>ShiftRows:</strong> The rows of the block are shifted to the left to provide diffusion.</li>
+                    <li><strong>MixColumns:</strong> Each column of the block is mixed to further scramble the data.</li>
+                    <li><strong>AddRoundKey:</strong> The block is combined with the current round key.</li>
+                </ul>
+            </li>
+            <li><strong>Final Round:</strong> The last round is similar but does not include the MixColumns step.</li>
+        </ol>  <hr> 
+        <h3>Why Use AES?</h3>
+        <ul>
+            <li><strong>Security:</strong> AES is highly secure and is used by governments and organizations worldwide.</li>
+            <li><strong>Speed:</strong> It is efficient in both hardware and software implementations.</li>
+            <li><strong>Flexibility:</strong> AES supports different key lengths, providing options for various security needs.</li>
+        </ul>
+        <p>
+            Overall, AES is a powerful tool for keeping data safe and is essential in various applications, 
+            including online banking, secure communications, and data storage.
+        </p>
+    </div>
+
+
     <div class="container">
-        <h1>AES Encryption/Decryption</h1>
+        <h2>AES Encryption/Decryption</h2>
+        
+        <!-- User Guide Section -->
+        <div class="user-guide">
+            <h3>User Guide</h3>
+            <p>
+                <strong>Secret Key:</strong> This is a special password that you create. 
+                It is used to lock (encrypt) and unlock (decrypt) your messages. 
+                Think of it like a key to a treasure chest: only those with the correct key can open it.
+            </p>
+            <p>
+                Make sure your key is strong and unique. It should be something that others cannot easily guess, 
+                but something you can remember. A good key might be a mix of letters, numbers, and symbols.
+            </p>
+            <p>
+                Always keep your secret key safe. If someone else gets your key, they can unlock your messages. 
+                Similarly, if you lose your key, you won’t be able to read your encrypted messages anymore!
+            </p>
+            <p>
+                <strong>Text to Encrypt/Decrypt:</strong> Type your message here. After you encrypt it, 
+                you can copy the result and use it later to decrypt with the same key.
+            </p>
+        </div>
+
         <label for="key">Secret Key:</label>
         <input type="text" id="key" placeholder="Enter secret key">
-        
+
         <label for="text">Text to Encrypt/Decrypt:</label>
         <textarea id="text" rows="4" placeholder="Enter text here..."></textarea>
-        
-        <button onclick="encryptText()">Encrypt</button>
+
+        <button onclick="encryptText()"> <abbr title="Secure your message by turning it into unreadable text."> Encrypt</abbr></button>
         <button onclick="decryptText()">Decrypt</button>
-        
+
         <h2>Result:</h2>
         <textarea id="result" rows="4" readonly></textarea>
     </div>
+
+    
+
     <script src="./aes.js"></script>
 </body>
+
 </html>

@@ -3,6 +3,17 @@ body {
     background-color: var(--btnDark);
     margin: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+code{
+    background-color: var(--code);
+    color: var(--bgDark);
+    border-radius: 4px;
+    padding: 1px;
 }
 
 .container {
@@ -10,9 +21,54 @@ body {
     margin: auto;
     background-color: var(--bgDark);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.rsa-details{
+    max-width: 600px;
+    width: 100%; /* Allow it to take the full width of the screen */
+    margin: auto;
+    background-color: var(--bgDark);
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+.rsa-details h2, .rsa-details h3 {
+    text-align: center;
+    color: var(--btnDark);
+}
+
+.rsa-details p, .rsa-details ul, .rsa-details ol {
+    margin: 10px 0;
+    line-height: 1.5; /* Improve readability */
+}
+
+.rsa-details ul, .rsa-details ol {
+    margin-left: 20px; /* Indent lists */
+}
+
+.user-guide {
+    background-color: var(--txtDark); /* Light background for the user guide */
+    padding: 15px;
+    border-radius: 30px;
+    margin-bottom: 20px; /* Space below the user guide */
+    border: 1px solid var(--primDark); /* Light border */
+    color: var(--bgDark);
+}
+
+.user-guide h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.user-guide p {
+    margin: 5px 0;
+    line-height: 1.5; /* Improve readability */
+}
+
 
 h1 {
     text-align: center;
@@ -25,28 +81,76 @@ label {
 
 input, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 30px;
     outline: none;
 }
 
 button {
-    width: 48%;
+    width: 45%;
     padding: 10px;
-    margin-top: 10px;
+    margin: 5px;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
     background-color: var(--secDark);
     color: white;
+    font-weight: 500;
 }
 
 button:hover {
     background-color: var(--primDark);
+    color: var(--bgDark);
+    transition: all 0.5s;
 }
 
 h2 {
     margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Reduce padding on smaller screens */
+        margin-top: 5px;
+    }
+
+    button {
+        width: 100%; /* Stack buttons on smaller screens */
+        margin-top: 10px; /* Add margin for spacing */
+    }
+
+    input, textarea {
+        font-size: 16px; /* Increase font size for better readability */
+    }
+
+    h1 {
+        font-size: 24px; /* Adjust header size */
+    }
+    body{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px; /* Smaller font for very small screens */
+    }
+
+    label {
+        font-size: 14px; /* Smaller font for labels */
+    }
+
+    input, textarea {
+        font-size: 14px; /* Smaller input and textarea font size */
+    }
+
+    button {
+        font-size: 16px; /* Adjust button font size */
+    }
+    body{
+        flex-direction: column;
+    }
 }

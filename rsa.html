@@ -1,33 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSA Encryption/Decryption</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./rsa.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.10.0/forge.min.js"></script>
 </head>
+
 <body>
+
+    <div class="rsa-details">
+        <h2>About RSA Algorithm</h2>
+        <p>
+            RSA (Rivest-Shamir-Adleman) is a widely used encryption method that protects information using two different keys. This technique is known as asymmetric encryption. 
+            It relies on complex mathematical principles, specifically the properties of prime numbers, to keep your data secure.
+        </p>
+        <h3>How RSA Works</h3>
+        <p>
+            The RSA algorithm consists of several important steps:
+        </p>
+        <ol>
+            <li>
+                <strong>Key Generation:</strong> 
+                - First, two large prime numbers, p and q, are selected. 
+                - These primes are multiplied together to create a number called n (the modulus), which is essential for both keys.
+                - Next, we calculate the totient φ(n) = (p - 1)(q - 1). This helps in determining how the keys will work.
+            </li>
+            <li>
+                <strong>Public Key:</strong> 
+                - The public key is made up of the modulus n and an exponent e (commonly set to 65537 because it speeds up the encryption process).
+                - This key can be shared with anyone, allowing them to encrypt messages that only you can read.
+            </li>
+            <li>
+                <strong>Private Key:</strong> 
+                - The private key is created from e and φ(n) using a method called the Extended Euclidean Algorithm to find d, which is the multiplicative inverse of e % φ(n).
+                - This key must be kept secret and secure, as it is used to decrypt messages encrypted with your public key.
+            </li>
+            <li>
+                <strong>Encryption:</strong> 
+                - When someone wants to send you a secure message, they convert that message into an integer m (making sure m < n).
+                - They then encrypt it using the formula c = m<sup>e</sup> % n, creating ciphertext c that can be safely sent over insecure channels.
+            </li>
+            <li>
+                <strong>Decryption:</strong> 
+                - Once you receive the ciphertext c, you can use your private key to decrypt it.
+                - You do this using the formula m = c<sup>d</sup> % n, which converts the ciphertext back into the original message m.
+            </li>
+        </ol>
+        <h3>Why Use RSA?</h3>
+        <ul>
+            <li>
+                <strong>Security:</strong> 
+                RSA is highly secure because breaking it would require factoring extremely large prime numbers, a task that is currently impractical for modern computers.
+            </li>
+            <li>
+                <strong>Asymmetry:</strong> 
+                Unlike symmetric encryption (where the same key is used for both encryption and decryption), RSA uses two keys. This makes it much easier to share your public key with others without compromising your private key.
+            </li>
+            <li>
+                <strong>Widespread Use:</strong> 
+                RSA is a foundational technology in many secure communications protocols, such as SSL/TLS, which protects data transmitted over the internet.
+            </li>
+        </ul>
+        <p>
+            RSA plays a crucial role in ensuring the confidentiality and integrity of digital communications, making it a cornerstone of modern cybersecurity.
+        </p>
+    </div>
+    
+    
     <div class="container">
-        <h1>RSA Encryption/Decryption</h1>
+
+        <div class="user-guide">
+            <h3>User Guide</h3>
+            <p>
+                <strong>Public Key:</strong> This is a key that you can share with anyone. It is used to lock (encrypt) your messages. 
+                Think of it as a mailbox where anyone can drop in letters, but only you can open it with your private key.
+            </p>
+            <p>
+                <strong>Private Key:</strong> This is your secret key, which you should never share with anyone. It is used to unlock (decrypt) messages that were encrypted with your public key. 
+                Imagine it as the key to your mailbox: only you should have it to read your letters.
+            </p>
+            <p>
+                <strong>Text to Encrypt/Decrypt:</strong> Type your message here. After you encrypt it, you can copy the result and use your private key to decrypt it later.
+            </p>
+            <p>
+                When you generate the keys, make sure to keep your private key safe. If someone else gets your private key, they can read your encrypted messages. 
+                If you lose your private key, you won’t be able to read your messages anymore!
+            </p>
+    
+        </div>
         
+        <h1>RSA Encryption/Decryption</h1>
+
         <button onclick="generateKeys()">Generate RSA Keys</button>
         <h3>Public Key:</h3>
         <textarea id="publicKey" rows="4" readonly></textarea>
-        
+
         <h3>Private Key:</h3>
         <textarea id="privateKey" rows="4" readonly></textarea>
-        
+
         <label for="text">Text to Encrypt/Decrypt:</label>
         <textarea id="text" rows="4" placeholder="Enter text here..."></textarea>
-        
+
         <button onclick="encryptText()">Encrypt</button>
         <button onclick="decryptText()">Decrypt</button>
-        
+
         <h2>Result:</h2>
         <textarea id="result" rows="4" readonly></textarea>
     </div>
     <script src="./rsa.js"></script>
 </body>
+
 </html>
